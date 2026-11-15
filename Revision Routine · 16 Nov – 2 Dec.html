@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Revision Routine · 16 Nov – 2 Dec</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f3f6fa;--card:#fff;--ink:#14202e;--mute:#5d6b7c;--line:#dde4ec;--soft:#eaf0f7;--exam:#b3261e;--exambg:#fdecea;
+--p:#2f6fd6;--c:#1f9a62;--m:#8250df;--b:#d6456f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e141c;--card:#161e29;--ink:#e6edf5;--mute:#93a1b3;--line:#263242;--soft:#1d2836;--exam:#ff8a80;--exambg:#3a1d1f;--p:#6ea2ff;--c:#4cc790;--m:#b08cff;--b:#ff7aa0}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e141c;--card:#161e29;--ink:#e6edf5;--mute:#93a1b3;--line:#263242;--soft:#1d2836;--exam:#ff8a80;--exambg:#3a1d1f;--p:#6ea2ff;--c:#4cc790;--m:#b08cff;--b:#ff7aa0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:640px;margin:0 auto;padding:16px 14px 40px}
+h1{font-size:22px;line-height:1.2;margin:4px 0 4px}
+.sub{color:var(--mute);margin:0 0 14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 6px;text-align:center}
+.stats b{display:block;font-size:18px;font-variant-numeric:tabular-nums}
+.stats span{font-size:11.5px;color:var(--mute)}
+.lane{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:14px}
+.lane h2,.notes summary{font-size:14px;margin:0 0 8px}
+.row{display:flex;align-items:center;gap:8px;font-size:13px;margin:5px 0}
+.row i{width:10px;height:10px;border-radius:50%;background:var(--k);flex:none}
+.row span:last-child{margin-left:auto;color:var(--mute);font-variant-numeric:tabular-nums}
+details.notes{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:16px}
+.notes summary{cursor:pointer;margin:0}
+.notes ul{margin:10px 0 0;padding-left:18px;font-size:13.5px}
+.notes li{margin:5px 0}
+details.day{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+details.day.today{border-color:var(--p);box-shadow:0 0 0 2px color-mix(in srgb,var(--p) 25%,transparent)}
+details.day.exam{border-left:4px solid var(--exam)}
+.day>summary{list-style:none;cursor:pointer;padding:11px 12px;display:flex;gap:10px;align-items:center}
+.day>summary::-webkit-details-marker{display:none}
+.dt{min-width:52px}.dt b{display:block;font-size:17px;line-height:1.1}.dt span{font-size:12px;color:var(--mute)}
+.sm{flex:1;min-width:0;font-size:13px}
+.sm .tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--soft);color:var(--mute)}
+.exam .tag{background:var(--exambg);color:var(--exam);font-weight:600}
+.dots{display:flex;gap:4px;margin-top:5px}.dots i{width:8px;height:8px;border-radius:50%;background:var(--k)}
+.body{border-top:1px solid var(--line);padding:4px 12px 10px}
+.blk{display:grid;grid-template-columns:78px 1fr;gap:8px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.blk:last-child{border-bottom:0}
+.tm{color:var(--mute);font-size:12px;font-variant-numeric:tabular-nums;padding-top:2px}
+.m .lb{color:var(--mute)}
+.r .lb,.p .lb{font-weight:600}
+.x{background:var(--exambg);margin:4px -12px;padding:8px 12px}.x .lb{color:var(--exam);font-weight:700}
+.chip{display:inline-block;margin:2px 4px 2px 0;padding:3px 9px;border-radius:8px;background:color-mix(in srgb,var(--k) 14%,transparent);border-left:3px solid var(--k);font-weight:600}
+.chip em{font-style:normal;font-weight:400;color:var(--mute);margin-left:6px;font-size:12px}
+.opt{font-size:12.5px;color:var(--mute);padding:6px 0 2px}
+</style>
+</head>
+<body>
+<main>
+<h1>Revision routine</h1>
+<p class="sub">16 Nov – 3 Dec · one full pass over the syllabus</p>
+<div class="stats" id="stats"></div>
+<div class="lane"><h2>Subjects (first → last day)</h2><div id="lane"></div></div>
+<details class="notes"><summary>What changed in the routine</summary><ul>
+<li><b>Time doesn’t fit at 3 h per chapter.</b> The full list needs about 203 h; 17 days hold about 138 h. Gap chapters (★) get the most time. Other chapters get a one-pass 1.5 h (2 h for Math I(3), I(5), II(6); 2.5 h for Chemistry, 1 h for Physics I(1), I(10)).</li>
+<li><b>Subjects are mixed.</b> Each study block rotates Physics → Chemistry → Math → Biology. Chapter order inside each subject is unchanged, and exam dates are not used for ordering.</li>
+<li><b>Midday dead time removed.</b> Bath, prayer and lunch end by 2 PM instead of 4 PM. Nap is 1 h, sleep stays at 12:30 AM (7.5 h).</li>
+<li><b>PYQ is 1.5 h.</b> PYQ on the day’s chapters plus mistake review. On exam days it becomes exam review.</li>
+<li><b>Exams:</b> the six paper finals (18–28 Nov) are scheduled. Subject finals on 29 Nov – 2 Dec are optional and skipped by default; each one costs about half a revision day.</li>
+<li><b>Spill-over:</b> Dec 3 is included as an extra revision day and absorbs the chapters that do not fit by 2 Dec. Its optional subject final is skipped by default.</li>
+<li><b>Added chapters:</b> Chem II(4) (2 h), Phy I(1, 10), Math I(2), II(5), Bio I(2, 9, 12), II(7, 9) were missing from the sequence and are now included. Chem II(2) is excluded.</li>
+</ul></details>
+<div id="days"></div>
+</main>
+<script>
+const S={P:["Physics","Phy","--p"],C:["Chemistry","Che","--c"],M:["Higher Math","Math","--m"],B:["Biology","Bio","--b"]};
+const D={
+P:"I8 I9@2* II1@3* I1@1 I2 I3 I4 I5 II3 I6 II2 I7 I10@1 II4 II5 II6 II7 II8 II9 II10 II11",
+C:"II3@2.5 I2@2.5 I4@2.5 II1@2.5 II4@2 I3@4* I1@2.5 I5@2.5 II5@2.5",
+M:"I1@2* II4@2* I2@1 I3@2 I4 II5 II6@2 I7@4* II7 II1@3* II2 II3 I9 I10@4* I5@2 II10 I8 I6@3* II8 II9",
+B:"I3@3* I7@3* I8@3* I10@3* I11@3* II11@3* II12@3* II1@3* II10@3* I1 I2 I6 II5@1 II6@1 I4 I5 I9@1 I12@1 II2 II3@1 II4@1 II7@1 II8 II9@1"};
+const NE=["08:00-09:00|Sutra / formula recap (yesterday’s chapters)|r","09:00-09:30|Breakfast|m","09:30-12:30|Q|q","12:30-14:00|Bath, prayer, lunch|m","14:00-15:30|Q|q","15:30-16:30|Nap|m","16:30-17:15|Prayer + snacks|m","17:15-18:45|PYQ on today’s chapters + mistake review|p","18:45-19:00|Rest|m","19:00-20:30|Q|q","20:30-21:15|Dinner|m","21:15-23:45|Q|q","23:45-24:30|Plan tomorrow + 15-min formula skim|r"];
+const EX=["08:00-09:30|Q|q","09:30-10:00|Breakfast|m","10:00-10:45|Q|q","10:45-11:00|Leave for exam|m","11:00-13:00|EXAM|x","13:00-15:00|Travel home|m","15:00-16:30|Bath, prayer, lunch|m","16:30-17:30|Exam review: mark mistakes, list weak chapters|p","17:30-18:00|Prayer + snacks|m","18:00-19:30|Q|q","19:30-19:45|Rest|m","19:45-21:30|Q|q","21:30-22:15|Dinner|m","22:15-24:15|Q|q","24:15-24:30|Plan tomorrow|r"];
+const XM={"11-18":"Physics 1st Paper Final","11-20":"Physics 2nd Paper Final","11-22":"Chemistry 1st Paper Final","11-24":"Chemistry 2nd Paper Final","11-26":"Higher Math 1st Paper Final","11-28":"Higher Math 2nd Paper Final"};
+const OP={"11-29":"Optional: Math 1st & 2nd subject final (Engineering)","11-30":"Optional: Biology / Bangla / English subject final (Varsity)","12-1":"Optional: Physics subject final (Engineering) or Chemistry (Varsity)","12-2":"Optional: Physics subject final (Varsity)","12-3":"Optional: Chemistry subject final (Engineering) or Math / Bangla / English (Varsity)"};
+const Q=[],QS={},OR="PCMB";let sp=0;
+for(const s of "PCMB")for(const t of D[s].split(" ")){const m=t.match(/^(I+)(\d+)(?:@([\d.]+))?(\*)?$/);const h=m[3]?+m[3]:1.5;const o={s,p:m[1].length,n:m[2],h,g:!!m[4],left:h};Q.push(o);(QS[s]=QS[s]||[]).push(o);}
+const hm=x=>{const a=x.split(":");return +a[0]+ +a[1]/60};
+const f=x=>{let h=Math.floor(x),m=Math.round((x-h)*60);const ap=(h>=12&&h<24)?"PM":"AM";h=h%12||12;return h+":"+String(m).padStart(2,"0")+" "+ap};
+const fh=x=>(+x.toFixed(2))+"h";
+const mon=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],wd=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const nxt=()=>{for(let t=0;t<4;t++){const it=QS[OR[(sp+t)%4]].find(x=>x.left>.001);if(it)return it}return null};let qi=0,spare=0,cap=0,exams=0;const span={};const now=new Date();let todayHit=false;
+const out=[];
+for(let i=0;i<18;i++){
+  const d=new Date(2026,10,16+i),key=(d.getMonth()+1)+"-"+d.getDate(),ex=XM[key],T=ex?EX:NE;
+  if(ex)exams++;
+  const subs=new Set();let html="";
+  for(const line of T){
+    const[tt,lab,k]=line.split("|"),[a,b]=tt.split("-").map(hm);let L=lab;
+    if(k==="q"){
+      let H=b-a;cap+=H;L="";sp++;
+      while(H>.001){
+        const it=nxt();
+        if(!it){L+='<span class="chip" style="--k:var(--mute)">Buffer: re-pass gap chapters + PYQ errors<em>'+fh(H)+"</em></span>";spare+=H;break;}
+        const t=Math.min(H,it.left);it.left-=t;H-=t;subs.add(it.s);
+        (span[it.s]=span[it.s]||{a:i,b:i}).b=i;
+        L+='<span class="chip" style="--k:var('+S[it.s][2]+')">'+S[it.s][1]+" "+it.p+(it.p==1?"st":"nd")+" · Ch "+it.n+(it.g?" ★":"")+"<em>"+fh(t)+(t<it.h-.001?" of "+fh(it.h):"")+"</em></span>";
+      }
+    }
+    html+='<div class="blk '+(k==="q"?"":k)+'"><div class="tm">'+f(a)+"–"+f(b)+'</div><div class="lb">'+L+"</div></div>";
+  }
+  const op=OP[key];if(op)html+='<div class="opt">'+op+"</div>";
+  const isT=now.getFullYear()===2026&&now.getMonth()===d.getMonth()&&now.getDate()===d.getDate();if(isT)todayHit=true;
+  const dots=[...subs].map(s=>'<i style="--k:var('+S[s][2]+')"></i>').join("");
+  out.push('<details class="day'+(ex?" exam":"")+(isT?" today":"")+'"'+((isT||(i===0&&!todayHit&&now<d))?" open":"")+'><summary><div class="dt"><b>'+d.getDate()+" "+mon[d.getMonth()]+"</b><span>"+wd[d.getDay()]+'</span></div><div class="sm"><span class="tag">'+(ex?"Exam · "+ex:"Revision day")+'</span><div class="dots">'+dots+'</div></div></summary><div class="body">'+html+"</div></details>");
+}
+document.getElementById("days").innerHTML=out.join("");
+const need=Q.reduce((s,x)=>s+x.h,0);const over=Q.reduce((s,x)=>s+x.left,0);
+document.getElementById("stats").innerHTML=[[18,"days"],[exams,"exam days"],[fh(need),"revision plan"],[over>.05?fh(over):fh(spare),over>.05?"doesn’t fit":"spare"]].map(x=>"<div><b>"+x[0]+"</b><span>"+x[1]+"</span></div>").join("");
+const ld=i=>{const d=new Date(2026,10,16+i);return d.getDate()+" "+mon[d.getMonth()]};
+document.getElementById("lane").innerHTML=Object.keys(S).map(s=>{const x=span[s];return '<div class="row" style="--k:var('+S[s][2]+')"><i></i><span>'+S[s][0]+"</span><span>"+(x?ld(x.a)+" → "+ld(x.b):"—")+"</span></div>"}).join("");
+</script>
+</body>
+</html>
